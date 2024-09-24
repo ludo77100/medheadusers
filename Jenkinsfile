@@ -44,10 +44,12 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    echo "Starting Docker push..."
-                    docker.withRegistry('https://registry.hub.docker.com', 'DOCKERHUB_CREDENTIALS') {
-                        dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("latest")
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                        // Effectuer le login de manière sécurisée
+                        sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
+                        // Pousser l'image vers Docker Hub
+                        sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
+                        sh "docker push ${env.IMAGE_NAME}:latest"
                     }
                 }
             }

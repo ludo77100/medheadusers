@@ -1,5 +1,5 @@
 # Étape 1 : Utiliser OpenJDK 17 pour construire l'application
-FROM maven:3.8.6-openjdk-17-slim AS build
+FROM maven:3.8.6-openjdk-17 AS build
 WORKDIR /app
 
 # Copier le pom.xml et les fichiers sources

@@ -42,7 +42,7 @@ pipeline {
                         sh 'echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin'
                         // Pousser l'image vers Docker Hub
                         sh "docker push ${env.IMAGE_NAME}:${env.BUILD_NUMBER}"
-                        sh "docker push ${env.IMAGE_NAME}:latest"
+                        //sh "docker push ${env.IMAGE_NAME}:latest"
                     }
                 }
             }

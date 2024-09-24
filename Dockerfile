@@ -1,4 +1,4 @@
-# Étape 1 : Utiliser OpenJDK 17 pour construire l'application
+# Étape 1 : Utiliser Maven avec OpenJDK 17 d'Eclipse Temurin pour construire l'application
 FROM maven:3.8.8-eclipse-temurin-17 AS build
 WORKDIR /app
 
@@ -9,8 +9,15 @@ COPY src ./src
 # Construire l'application avec Maven
 RUN mvn clean package -DskipTests
 
-# Copier le fichier .jar depuis l'étape précédente
-COPY --from=build /app/target/usersmicroservice-0.0.1-SNAPSHOT.jar /app/usersmicroservice-0.0.1-SNAPSHOT.jar
+# Étape 2 : Utiliser une image légère OpenJDK pour exécuter l'application
+FROM eclipse-temurin:17-jdk-jammy
+WORKDIR /app
 
-# Indiquer le fichier final à stocker dans l'image Docker
-CMD ["echo", "Docker image ready to be pushed"]
+# Copier l'artefact JAR depuis l'étape de build
+COPY --from=build /app/target/usersmicroservice-0.0.1-SNAPSHOT.jar /app/usersmicroservice.jar
+
+# Exposer le port 8080 (ou tout autre port utilisé par ton application)
+EXPOSE 8080
+
+# Commande pour exécuter l'application
+CMD ["java", "-jar", "/app/usersmicroservice.jar"]

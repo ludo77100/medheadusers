@@ -34,6 +34,13 @@ pipeline {
                 }
             }
         }
+        stage('Check Credentials') {
+            steps {
+                script {
+                    echo "DOCKERHUB_CREDENTIALS: ${env.DOCKERHUB_CREDENTIALS}"
+                }
+            }
+        }
         stage('Push Docker Image') {
             steps {
                 script {

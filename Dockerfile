@@ -1,5 +1,5 @@
-# Étape 1 : Utiliser OpenJDK 22 pour construire l'application
-FROM openjdk:22-jdk-slim AS build
+# Étape 1 : Utiliser OpenJDK 17 pour construire l'application
+FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 
 # Copier le pom.xml et les fichiers sources

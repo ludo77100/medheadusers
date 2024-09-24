@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
-        IMAGE_NAME = 'fr0d0n/medheadoc'
+        IMAGE_NAME = 'fr0d0n/medhead-users'
     }
     stages {
         stage('Check Docker') {

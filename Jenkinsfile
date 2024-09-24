@@ -4,13 +4,13 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
         IMAGE_NAME = 'fr0d0n/medheadoc'
     }
-    stage('Check Docker') {
-        steps {
-            sh 'docker --version'  // Vérifie la version de Docker
-            sh 'docker images'     // Liste les images Docker existantes
-        }
-    }
     stages {
+        stage('Check Docker') {
+            steps {
+                sh 'docker --version'  // Vérifie la version de Docker
+                sh 'docker images'     // Liste les images Docker existantes
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'

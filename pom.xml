@@ -26,6 +26,13 @@
 		<tag/>
 		<url/>
 	</scm>
+	<repositories>
+		<!-- Ajouter le dépôt SonarSource -->
+		<repository>
+			<id>sonarsource</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
+		</repository>
+	</repositories>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -94,6 +101,11 @@
 				<configuration>
 					<reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>4.0.0.4121</version>
 			</plugin>
 		</plugins>
 	</build>

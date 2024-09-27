@@ -3,12 +3,26 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
         IMAGE_NAME = 'fr0d0n/medhead-users'
+        SONAR_TOKEN = credentials('sonarcloud-token')
+        SONAR_PROJECT_KEY = 'ludo77100_medheadusers'
     }
     stages {
         stage('Check Docker') {
             steps {
                 sh 'docker --version'  // Vérifie la version de Docker
                 sh 'docker images'     // Liste les images Docker existantes
+            }
+        }
+        stage('SonarCloud Analysis') {
+            steps {
+                script {
+                    // Exécuter l'analyse avec SonarCloud
+                    sh "mvn sonar:sonar \
+                        -Dsonar.projectKey=${env.SONAR_PROJECT_KEY} \
+                        -Dsonar.organization=ludo77100 \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.login=${env.SONAR_TOKEN}"
+                }
             }
         }
         stage('Build') {

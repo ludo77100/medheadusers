@@ -13,18 +13,6 @@ pipeline {
                 sh 'docker images'     // Liste les images Docker existantes
             }
         }
-        stage('SonarCloud Analysis') {
-            steps {
-                script {
-                    // Exécuter l'analyse avec SonarCloud
-                    sh "mvn sonar:sonar \
-                        -Dsonar.projectKey=${env.SONAR_PROJECT_KEY} \
-                        -Dsonar.organization=ludo77100 \
-                        -Dsonar.host.url=https://sonarcloud.io \
-                        -Dsonar.login=${env.SONAR_TOKEN}"
-                }
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
@@ -37,6 +25,21 @@ pipeline {
             post {
                 always {
                     junit '**/target/surefire-reports/*.xml'
+                    jacoco execPattern: '**/target/jacoco.exec'
+                }
+            }
+        }
+        stage('SonarCloud Analysis') {
+            steps {
+                script {
+                    // Exécuter l'analyse avec SonarCloud
+                    sh "mvn sonar:sonar \
+                        -Dsonar.projectKey=${env.SONAR_PROJECT_KEY} \
+                        -Dsonar.organization=ludo77100 \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.login=${env.SONAR_TOKEN} \
+                        -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
+
                 }
             }
         }

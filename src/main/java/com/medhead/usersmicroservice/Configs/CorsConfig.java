@@ -1,3 +1,4 @@
+/*
 package com.medhead.usersmicroservice.Configs;
 
 import org.springframework.context.annotation.Bean;
@@ -22,4 +23,4 @@ public class CorsConfig {
         source.registerCorsConfiguration("/**", corsConfiguration);
         return new CorsFilter(source);
     }
-}
+}*/

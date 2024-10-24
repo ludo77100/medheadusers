@@ -1,4 +1,4 @@
-package com.medhead.usersmicroservice.Exceptions;
+package com.medhead.usersmicroservice.exceptions;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.http.ProblemDetail;

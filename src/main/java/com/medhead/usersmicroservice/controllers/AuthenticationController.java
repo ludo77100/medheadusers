@@ -1,12 +1,12 @@
-package com.medhead.usersmicroservice.Controllers;
+package com.medhead.usersmicroservice.controllers;
 
 
-import com.medhead.usersmicroservice.Dtos.LoginUserDto;
-import com.medhead.usersmicroservice.Dtos.RegisterUserDto;
-import com.medhead.usersmicroservice.Entities.User;
-import com.medhead.usersmicroservice.Responses.LoginResponse;
-import com.medhead.usersmicroservice.Services.AuthenticationService;
-import com.medhead.usersmicroservice.Services.JwtService;
+import com.medhead.usersmicroservice.dtos.LoginUserDto;
+import com.medhead.usersmicroservice.dtos.RegisterUserDto;
+import com.medhead.usersmicroservice.entities.User;
+import com.medhead.usersmicroservice.responses.LoginResponse;
+import com.medhead.usersmicroservice.services.AuthenticationService;
+import com.medhead.usersmicroservice.services.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

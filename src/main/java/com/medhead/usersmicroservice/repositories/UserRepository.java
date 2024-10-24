@@ -1,6 +1,6 @@
-package com.medhead.usersmicroservice.Repositories;
+package com.medhead.usersmicroservice.repositories;
 
-import com.medhead.usersmicroservice.Entities.User;
+import com.medhead.usersmicroservice.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

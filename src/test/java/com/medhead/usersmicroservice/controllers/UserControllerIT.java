@@ -1,12 +1,12 @@
 package com.medhead.usersmicroservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medhead.usersmicroservice.Entities.Role;
-import com.medhead.usersmicroservice.Entities.RoleEnum;
-import com.medhead.usersmicroservice.Entities.User;
-import com.medhead.usersmicroservice.Repositories.RoleRepository;
-import com.medhead.usersmicroservice.Repositories.UserRepository;
-import com.medhead.usersmicroservice.Services.JwtService;
+import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.RoleEnum;
+import com.medhead.usersmicroservice.entities.User;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
+import com.medhead.usersmicroservice.repositories.UserRepository;
+import com.medhead.usersmicroservice.services.JwtService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

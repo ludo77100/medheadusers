@@ -1,4 +1,4 @@
-package com.medhead.usersmicroservice.Entities;
+package com.medhead.usersmicroservice.entities;
 
 public enum RoleEnum {
     USER,

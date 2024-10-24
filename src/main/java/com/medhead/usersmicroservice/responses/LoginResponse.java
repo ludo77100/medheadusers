@@ -1,4 +1,4 @@
-package com.medhead.usersmicroservice.Responses;
+package com.medhead.usersmicroservice.responses;
 
 public class LoginResponse {
     private String token;

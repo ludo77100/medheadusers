@@ -1,12 +1,12 @@
-package com.medhead.usersmicroservice.Services;
+package com.medhead.usersmicroservice.services;
 
 
-import com.medhead.usersmicroservice.Dtos.RegisterUserDto;
-import com.medhead.usersmicroservice.Entities.Role;
-import com.medhead.usersmicroservice.Entities.RoleEnum;
-import com.medhead.usersmicroservice.Repositories.RoleRepository;
-import com.medhead.usersmicroservice.Repositories.UserRepository;
-import com.medhead.usersmicroservice.Entities.User;
+import com.medhead.usersmicroservice.dtos.RegisterUserDto;
+import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.RoleEnum;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
+import com.medhead.usersmicroservice.repositories.UserRepository;
+import com.medhead.usersmicroservice.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
-package com.medhead.usersmicroservice.Bootstrap;
+package com.medhead.usersmicroservice.bootstrap;
 
-import com.medhead.usersmicroservice.Entities.Role;
-import com.medhead.usersmicroservice.Entities.RoleEnum;
-import com.medhead.usersmicroservice.Repositories.RoleRepository;
+import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.RoleEnum;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

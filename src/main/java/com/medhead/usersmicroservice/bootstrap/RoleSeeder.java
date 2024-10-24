@@ -29,7 +29,7 @@ public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
                 RoleEnum.SUPER_ADMIN, "Super Administrator role"
         );
 
-        Arrays.stream(roleNames).forEach((roleName) -> {
+        Arrays.stream(roleNames).forEach(roleName -> {
             Optional<Role> optionalRole = roleRepository.findByName(roleName);
 
             optionalRole.ifPresentOrElse(System.out::println, () -> {

@@ -2,9 +2,7 @@ package com.medhead.usersmicroservice.controllers;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medhead.usersmicroservice.Dtos.RegisterUserDto;
-import com.medhead.usersmicroservice.Entities.User;
-import com.medhead.usersmicroservice.Repositories.UserRepository;
+import com.medhead.usersmicroservice.dtos.RegisterUserDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @WithMockUser(roles = "SUPER_ADMIN")
-public class AdminControllerIT {
+class AdminControllerIT {
 
     @Autowired
     private MockMvc mockMvc;

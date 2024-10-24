@@ -1,7 +1,7 @@
-package com.medhead.usersmicroservice.Controllers;
+package com.medhead.usersmicroservice.controllers;
 
-import com.medhead.usersmicroservice.Entities.User;
-import com.medhead.usersmicroservice.Services.UserService;
+import com.medhead.usersmicroservice.entities.User;
+import com.medhead.usersmicroservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

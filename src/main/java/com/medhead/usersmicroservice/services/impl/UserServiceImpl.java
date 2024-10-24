@@ -1,8 +1,8 @@
-package com.medhead.usersmicroservice.Services.Impl;
+package com.medhead.usersmicroservice.services.impl;
 
-import com.medhead.usersmicroservice.Entities.User;
-import com.medhead.usersmicroservice.Repositories.UserRepository;
-import com.medhead.usersmicroservice.Services.UserService;
+import com.medhead.usersmicroservice.entities.User;
+import com.medhead.usersmicroservice.repositories.UserRepository;
+import com.medhead.usersmicroservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

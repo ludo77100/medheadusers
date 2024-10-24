@@ -1,4 +1,4 @@
-package com.medhead.usersmicroservice.Services;
+package com.medhead.usersmicroservice.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

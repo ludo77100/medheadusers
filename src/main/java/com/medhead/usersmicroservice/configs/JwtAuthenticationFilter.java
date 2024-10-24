@@ -1,6 +1,6 @@
-package com.medhead.usersmicroservice.Configs;
+package com.medhead.usersmicroservice.configs;
 
-import com.medhead.usersmicroservice.Services.JwtService;
+import com.medhead.usersmicroservice.services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

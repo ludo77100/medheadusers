@@ -1,7 +1,7 @@
-package com.medhead.usersmicroservice.Repositories;
+package com.medhead.usersmicroservice.repositories;
 
-import com.medhead.usersmicroservice.Entities.Role;
-import com.medhead.usersmicroservice.Entities.RoleEnum;
+import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.RoleEnum;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

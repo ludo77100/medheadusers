@@ -1,6 +1,6 @@
-package com.medhead.usersmicroservice.Configs;
+package com.medhead.usersmicroservice.configs;
 
-import com.medhead.usersmicroservice.Repositories.UserRepository;
+import com.medhead.usersmicroservice.repositories.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

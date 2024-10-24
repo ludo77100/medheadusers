@@ -1,4 +1,4 @@
-package com.medhead.usersmicroservice.Entities;
+package com.medhead.usersmicroservice.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +21,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User implements UserDetails {
+public class User implements UserDetails, Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -5236942456824810485L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

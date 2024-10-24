@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AuthenticationControllerIT {
+class AuthenticationControllerIT {
 
 
     @Autowired
@@ -35,7 +35,7 @@ public class AuthenticationControllerIT {
     private LoginUserDto loginUserDto;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
 
         registerUserDto = new RegisterUserDto();
         registerUserDto.setEmail("testuser@mail.com");
@@ -48,7 +48,7 @@ public class AuthenticationControllerIT {
     }
 
     @Test
-    public void testRegisterUser_Success() throws Exception {
+    void testRegisterUser_Success() throws Exception {
         mockMvc.perform(post("/auth/signup")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(registerUserDto)))
@@ -64,7 +64,7 @@ public class AuthenticationControllerIT {
 
 
     @Test
-    public void testAuthenticateUser_Success() throws Exception {
+    void testAuthenticateUser_Success() throws Exception {
 
         mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)

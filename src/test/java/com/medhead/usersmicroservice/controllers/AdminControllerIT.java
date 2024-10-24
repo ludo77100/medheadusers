@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @WithMockUser(roles = "SUPER_ADMIN")
-public class AdminControllerIT {
+class AdminControllerIT {
 
     @Autowired
     private MockMvc mockMvc;

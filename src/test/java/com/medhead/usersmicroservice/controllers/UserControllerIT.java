@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-public class UserControllerIT {
+class UserControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -47,7 +47,7 @@ public class UserControllerIT {
     private User adminUser;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -74,7 +74,7 @@ public class UserControllerIT {
     }
 
     @Test
-    public void testAuthenticatedUser_Success() throws Exception {
+    void testAuthenticatedUser_Success() throws Exception {
 
         mockMvc.perform(get("/users/me")
                         .header("Authorization", jwtTokenUser)
@@ -85,7 +85,7 @@ public class UserControllerIT {
     }
 
     @Test
-    public void testGetAllUsers_AdminRole_Success() throws Exception {
+    void testGetAllUsers_AdminRole_Success() throws Exception {
         // Performing the GET request to /users with admin authentication
         mockMvc.perform(get("/users")
                         .header("Authorization", jwtTokenAdmin)

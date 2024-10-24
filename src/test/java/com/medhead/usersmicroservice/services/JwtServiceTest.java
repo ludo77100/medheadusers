@@ -19,7 +19,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class JwtServiceTest {
+class JwtServiceTest {
 
     @InjectMocks
     private JwtService jwtService;
@@ -34,7 +34,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testExtractUsername() {
+    void testExtractUsername() {
         UserDetails userDetails = createUserDetails();
         String token = jwtService.generateToken(userDetails);
         String username = jwtService.extractUsername(token);
@@ -42,21 +42,21 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testGenerateToken() {
+    void testGenerateToken() {
         UserDetails userDetails = createUserDetails();
         String token = jwtService.generateToken(userDetails);
         assertNotNull(token);
     }
 
     @Test
-    public void testIsTokenValid() {
+    void testIsTokenValid() {
         UserDetails userDetails = createUserDetails();
         String token = jwtService.generateToken(userDetails);
         assertTrue(jwtService.isTokenValid(token, userDetails));
     }
 
     @Test
-    public void testIsTokenInvalidWithIncorrectUsername() {
+    void testIsTokenInvalidWithIncorrectUsername() {
         UserDetails userDetails = createUserDetails();
         String token = jwtService.generateToken(userDetails);
         UserDetails differentUserDetails = new User("anotherUser", "password", userDetails.getAuthorities());
@@ -64,7 +64,7 @@ public class JwtServiceTest {
     }
 
     @Test
-    public void testExtractClaim() {
+    void testExtractClaim() {
         UserDetails userDetails = createUserDetails();
         String token = jwtService.generateToken(userDetails);
         Claims claims = jwtService.extractAllClaims(token);

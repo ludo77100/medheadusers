@@ -4,15 +4,12 @@ com/medhead/usersmicroservice/exceptions/GlobalExceptionHandler.class
 com/medhead/usersmicroservice/responses/LoginResponse.class
 com/medhead/usersmicroservice/UsersmicroserviceApplication.class
 com/medhead/usersmicroservice/services/UserService.class
-com/medhead/usersmicroservice/repositories/RoleRepository.class
 com/medhead/usersmicroservice/services/impl/UserServiceImpl.class
-com/medhead/usersmicroservice/entities/Role.class
 com/medhead/usersmicroservice/dtos/RegisterUserDto.class
 com/medhead/usersmicroservice/dtos/LoginUserDto.class
 com/medhead/usersmicroservice/configs/ApplicationConfiguration.class
 com/medhead/usersmicroservice/controllers/AuthenticationController.class
 com/medhead/usersmicroservice/controllers/AdminController.class
-com/medhead/usersmicroservice/bootstrap/RoleSeeder.class
 com/medhead/usersmicroservice/configs/SecurityConfiguration.class
 com/medhead/usersmicroservice/services/JwtService.class
 com/medhead/usersmicroservice/entities/User.class

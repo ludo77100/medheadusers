@@ -1,10 +1,10 @@
 package com.medhead.usersmicroservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.Role;
 import com.medhead.usersmicroservice.entities.RoleEnum;
 import com.medhead.usersmicroservice.entities.User;
-//import com.medhead.usersmicroservice.repositories.RoleRepository;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 import com.medhead.usersmicroservice.services.JwtService;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,8 +32,8 @@ class UserControllerIT {
     @Autowired
     private UserRepository userRepository;
 
-/*    @Autowired
-    private RoleRepository roleRepository ;*/
+    @Autowired
+    private RoleRepository roleRepository ;
 
     @Autowired
     private JwtService jwtService;
@@ -45,16 +45,16 @@ class UserControllerIT {
     private String jwtTokenAdmin;
     private User user;
     private User adminUser;
-//    private Role userRole ;
-//    private Role adminRole ;
+    private Role userRole ;
+    private Role adminRole ;
 
-/*    @BeforeEach
+    @BeforeEach
     void setUp() {
 
          userRole = roleRepository.findByName(RoleEnum.USER).get();
          adminRole = roleRepository.findByName(RoleEnum.ADMIN).get();
 
-    }*/
+    }
 
     @Test
     void testAuthenticatedUser_Success() throws Exception {
@@ -65,7 +65,7 @@ class UserControllerIT {
         user.setEmail("authenticateduser@mail.com");
         user.setPassword(encoder.encode("password123"));
         user.setFullName("Authenticated User");
-        user.setRole(RoleEnum.USER);
+        user.setRole(userRole);
         user = userRepository.save(user);
 
         jwtTokenUser = "Bearer " + jwtService.generateToken(user);
@@ -87,7 +87,7 @@ class UserControllerIT {
         adminUser.setEmail("adminuser@mail.com");
         adminUser.setPassword(encoder.encode("adminpassword"));
         adminUser.setFullName("Admin User");
-        adminUser.setRole(RoleEnum.ADMIN);
+        adminUser.setRole(adminRole);
         adminUser = userRepository.save(adminUser);
 
         jwtTokenAdmin = "Bearer " + jwtService.generateToken(adminUser);

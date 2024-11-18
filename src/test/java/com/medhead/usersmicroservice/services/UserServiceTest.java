@@ -1,11 +1,10 @@
-/*
 package com.medhead.usersmicroservice.services;
 
 import com.medhead.usersmicroservice.dtos.RegisterUserDto;
-//import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.Role;
 import com.medhead.usersmicroservice.entities.RoleEnum;
 import com.medhead.usersmicroservice.entities.User;
-//import com.medhead.usersmicroservice.repositories.RoleRepository;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -110,4 +109,4 @@ class UserServiceTest {
         assertNull(actualUser);
         verify(userRepository, never()).save(any(User.class));
     }
-}*/
+}

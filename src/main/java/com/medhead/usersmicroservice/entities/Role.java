@@ -1,4 +1,3 @@
-/*
 package com.medhead.usersmicroservice.entities;
 
 import jakarta.persistence.*;
@@ -37,4 +36,4 @@ public class Role {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-}*/
+}

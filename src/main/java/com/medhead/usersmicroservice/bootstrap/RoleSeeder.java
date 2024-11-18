@@ -1,4 +1,3 @@
-/*
 package com.medhead.usersmicroservice.bootstrap;
 
 import com.medhead.usersmicroservice.entities.Role;
@@ -43,4 +42,4 @@ public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
             });
         });
     }
-}*/
+}

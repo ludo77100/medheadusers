@@ -2,9 +2,9 @@ package com.medhead.usersmicroservice.services;
 
 
 import com.medhead.usersmicroservice.dtos.RegisterUserDto;
-//import com.medhead.usersmicroservice.entities.Role;
+import com.medhead.usersmicroservice.entities.Role;
 import com.medhead.usersmicroservice.entities.RoleEnum;
-//import com.medhead.usersmicroservice.repositories.RoleRepository;
+import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 import com.medhead.usersmicroservice.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-/*    @Autowired
-    RoleRepository roleRepository ;*/
+    @Autowired
+    RoleRepository roleRepository ;
 
     @Autowired
     UserRepository userRepository ;
@@ -40,7 +40,7 @@ public class UserService {
 
     public User createAdministrator(RegisterUserDto input) {
 
-        Optional<RoleEnum> optionalRole = Optional.of(RoleEnum.ADMIN);
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
 
         if (optionalRole.isEmpty()) {
             return null;

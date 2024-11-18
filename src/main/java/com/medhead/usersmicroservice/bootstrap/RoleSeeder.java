@@ -21,7 +21,7 @@ public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
         this.loadRoles();
     }
 
-    private void loadRoles() {
+    void loadRoles() {
         RoleEnum[] roleNames = new RoleEnum[] { RoleEnum.USER, RoleEnum.ADMIN, RoleEnum.SUPER_ADMIN };
         Map<RoleEnum, String> roleDescriptionMap = Map.of(
                 RoleEnum.USER, "Default user role",

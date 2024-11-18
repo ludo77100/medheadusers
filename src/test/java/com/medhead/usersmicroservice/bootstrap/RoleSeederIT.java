@@ -25,15 +25,9 @@ public class RoleSeederIT {
     @Autowired
     private RoleSeeder roleSeeder ;
 
-    @BeforeEach
-    void setUp() {
-
-        roleRepository.deleteAll();
-
-    }
 
     @Test
-    void testLoadRolesCreatesRolesWhenNotPresent() {
+    void testLoadRolesCreatesRolesOnApplicationStart() {
 
         roleSeeder.loadRoles();
 

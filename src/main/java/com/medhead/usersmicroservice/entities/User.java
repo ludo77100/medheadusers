@@ -49,7 +49,7 @@ public class User implements UserDetails, Serializable {
     private Date updatedAt;
 
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = true)
+    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
     private Role role;
 
     @Override

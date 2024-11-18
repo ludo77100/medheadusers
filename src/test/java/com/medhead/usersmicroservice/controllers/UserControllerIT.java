@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Transactional
+//@Transactional
 class UserControllerIT {
 
     @Autowired
@@ -45,6 +45,16 @@ class UserControllerIT {
     private String jwtTokenAdmin;
     private User user;
     private User adminUser;
+    private Role userRole ;
+    private Role adminRole ;
+
+    @BeforeEach
+    void setUp() {
+
+         userRole = roleRepository.findByName(RoleEnum.USER).get();
+         adminRole = roleRepository.findByName(RoleEnum.ADMIN).get();
+
+    }
 
     @Test
     void testAuthenticatedUser_Success() throws Exception {
@@ -55,7 +65,7 @@ class UserControllerIT {
         user.setEmail("authenticateduser@mail.com");
         user.setPassword(encoder.encode("password123"));
         user.setFullName("Authenticated User");
-        user.setRole(roleRepository.findByName(RoleEnum.USER).get());
+        user.setRole(userRole);
         user = userRepository.save(user);
 
         jwtTokenUser = "Bearer " + jwtService.generateToken(user);
@@ -77,7 +87,7 @@ class UserControllerIT {
         adminUser.setEmail("adminuser@mail.com");
         adminUser.setPassword(encoder.encode("adminpassword"));
         adminUser.setFullName("Admin User");
-        adminUser.setRole(roleRepository.findByName(RoleEnum.ADMIN).get());
+        adminUser.setRole(adminRole);
         adminUser = userRepository.save(adminUser);
 
         jwtTokenAdmin = "Bearer " + jwtService.generateToken(adminUser);

@@ -2,10 +2,10 @@ package com.medhead.usersmicroservice.bootstrap;
 
 
 import com.medhead.usersmicroservice.dtos.RegisterUserDto;
-import com.medhead.usersmicroservice.entities.Role;
+//import com.medhead.usersmicroservice.entities.Role;
 import com.medhead.usersmicroservice.entities.RoleEnum;
 import com.medhead.usersmicroservice.entities.User;
-import com.medhead.usersmicroservice.repositories.RoleRepository;
+//import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -19,8 +19,8 @@ import java.util.Optional;
 public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
 
-    @Autowired
-    RoleRepository roleRepository ;
+/*    @Autowired
+    RoleRepository roleRepository ;*/
     @Autowired
     UserRepository userRepository;
 
@@ -44,7 +44,7 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
         userDto.setEmail("super.admin@email.com");
         userDto.setPassword("123456");
 
-        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.SUPER_ADMIN);
+        Optional<RoleEnum> optionalRole = Optional.of(RoleEnum.SUPER_ADMIN);
         Optional<User> optionalUser = userRepository.findByEmail(userDto.getEmail());
 
         if (optionalRole.isEmpty() || optionalUser.isPresent()) {

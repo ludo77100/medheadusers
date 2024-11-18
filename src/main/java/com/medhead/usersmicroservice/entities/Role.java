@@ -1,3 +1,4 @@
+/*
 package com.medhead.usersmicroservice.entities;
 
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Integer id;
 
     @Column(unique = true, nullable = false)
@@ -36,4 +37,4 @@ public class Role {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-}
+}*/

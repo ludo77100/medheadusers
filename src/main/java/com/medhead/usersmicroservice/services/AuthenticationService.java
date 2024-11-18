@@ -2,10 +2,10 @@ package com.medhead.usersmicroservice.services;
 
 import com.medhead.usersmicroservice.dtos.LoginUserDto;
 import com.medhead.usersmicroservice.dtos.RegisterUserDto;
-import com.medhead.usersmicroservice.entities.Role;
+//import com.medhead.usersmicroservice.entities.Role;
 import com.medhead.usersmicroservice.entities.RoleEnum;
 import com.medhead.usersmicroservice.entities.User;
-import com.medhead.usersmicroservice.repositories.RoleRepository;
+//import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 
 
@@ -20,8 +20,8 @@ import java.util.Optional;
 @Service
 public class AuthenticationService {
 
-    @Autowired
-    RoleRepository roleRepository ;
+/*    @Autowired
+    RoleRepository roleRepository ;*/
 
     private final UserRepository userRepository;
 
@@ -40,7 +40,7 @@ public class AuthenticationService {
     }
 
     public User signup(RegisterUserDto input) {
-        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.USER);
+        Optional<RoleEnum> optionalRole = Optional.of(RoleEnum.USER);
 
         if (optionalRole.isEmpty()) {
             return null;

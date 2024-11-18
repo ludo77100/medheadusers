@@ -1,3 +1,4 @@
+/*
 package com.medhead.usersmicroservice.repositories;
 
 import com.medhead.usersmicroservice.entities.Role;
@@ -10,4 +11,4 @@ import java.util.Optional;
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Integer> {
     Optional<Role> findByName(RoleEnum name);
-}
+}*/

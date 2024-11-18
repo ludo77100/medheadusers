@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Transactional
+//@Transactional
 class UserControllerIT {
 
     @Autowired
@@ -46,35 +46,19 @@ class UserControllerIT {
     private User user;
     private User adminUser;
 
-    @BeforeEach
-    void setUp() {
+    @Test
+    void testAuthenticatedUser_Success() throws Exception {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-        Role userRole = roleRepository.findByName(RoleEnum.USER).get();
-        Role adminRole = roleRepository.findByName(RoleEnum.ADMIN).get();
 
         user = new User();
         user.setEmail("authenticateduser@mail.com");
         user.setPassword(encoder.encode("password123"));
         user.setFullName("Authenticated User");
-        user.setRole(userRole);
+        user.setRole(roleRepository.findByName(RoleEnum.USER).get());
         user = userRepository.save(user);
 
         jwtTokenUser = "Bearer " + jwtService.generateToken(user);
-
-        adminUser = new User();
-        adminUser.setEmail("adminuser@mail.com");
-        adminUser.setPassword(encoder.encode("adminpassword"));
-        adminUser.setFullName("Admin User");
-        adminUser.setRole(adminRole);
-        adminUser = userRepository.save(adminUser);
-
-        jwtTokenAdmin = "Bearer " + jwtService.generateToken(adminUser);
-    }
-
-    @Test
-    void testAuthenticatedUser_Success() throws Exception {
 
         mockMvc.perform(get("/users/me")
                         .header("Authorization", jwtTokenUser)
@@ -86,6 +70,18 @@ class UserControllerIT {
 
     @Test
     void testGetAllUsers_AdminRole_Success() throws Exception {
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        adminUser = new User();
+        adminUser.setEmail("adminuser@mail.com");
+        adminUser.setPassword(encoder.encode("adminpassword"));
+        adminUser.setFullName("Admin User");
+        adminUser.setRole(roleRepository.findByName(RoleEnum.ADMIN).get());
+        adminUser = userRepository.save(adminUser);
+
+        jwtTokenAdmin = "Bearer " + jwtService.generateToken(adminUser);
+
         // Performing the GET request to /users with admin authentication
         mockMvc.perform(get("/users")
                         .header("Authorization", jwtTokenAdmin)

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.medhead.usersmicroservice.UsersmicroserviceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.112 s -- in com.medhead.usersmicroservice.UsersmicroserviceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.438 s -- in com.medhead.usersmicroservice.UsersmicroserviceApplicationTests

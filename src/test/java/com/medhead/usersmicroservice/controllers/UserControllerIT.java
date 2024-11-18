@@ -17,6 +17,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -50,6 +54,29 @@ class UserControllerIT {
 
     @BeforeEach
     void setUp() {
+
+        userRepository.deleteAll();
+        roleRepository.deleteAll();
+
+        RoleEnum[] roleNames = new RoleEnum[] { RoleEnum.USER, RoleEnum.ADMIN, RoleEnum.SUPER_ADMIN };
+        Map<RoleEnum, String> roleDescriptionMap = Map.of(
+                RoleEnum.USER, "Default user role",
+                RoleEnum.ADMIN, "Administrator role",
+                RoleEnum.SUPER_ADMIN, "Super Administrator role"
+        );
+
+        Arrays.stream(roleNames).forEach(roleName -> {
+            Optional<Role> optionalRole = roleRepository.findByName(roleName);
+
+            optionalRole.ifPresentOrElse(System.out::println, () -> {
+                Role roleToCreate = new Role();
+
+                roleToCreate.setName(roleName);
+                roleToCreate.setDescription(roleDescriptionMap.get(roleName));
+
+                roleRepository.save(roleToCreate);
+            });
+        });
 
          userRole = roleRepository.findByName(RoleEnum.USER).get();
          adminRole = roleRepository.findByName(RoleEnum.ADMIN).get();

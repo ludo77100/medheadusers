@@ -1,7 +1,0 @@
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/UsersmicroserviceApplicationTests.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/bootstrap/RoleSeederIT.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/controllers/AdminControllerIT.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/controllers/AuthenticationControllerIT.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/controllers/UserControllerIT.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/services/JwtServiceTest.java
-/Users/ludovicsouplet/Documents/POC_medhead_urgences_code/users/medheadusers/src/test/java/com/medhead/usersmicroservice/services/UserServiceTest.java

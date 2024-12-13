@@ -9,6 +9,7 @@ import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -56,6 +57,7 @@ public class AuthenticationService {
      *
      * @return Utilisateur créé et enregistré dans la base de données
      */
+    @Transactional
     public User signup(RegisterUserDto input) {
         Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.USER);
 

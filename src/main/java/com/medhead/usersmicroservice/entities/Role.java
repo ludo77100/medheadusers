@@ -7,6 +7,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
+/**
+ *
+ * Représente le rôle d'un utilisateur dans le système
+ *
+ */
 @Table(name = "roles")
 @Entity
 @Getter

@@ -10,6 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implémentation du service utilisateur
+ *
+ * Cette classe fournit l'implémentation de la logique métier pour la gestion des utilisateurs
+ *
+ * Principales fonctionnalités :
+ * - Récupération de la liste de tous les utilisateurs.
+ */
 @Service
 public class UserServiceImpl extends UserService {
 

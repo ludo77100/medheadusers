@@ -16,7 +16,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+/**
+ * Service d'authentification
+ *
+ * Ce service fournit les méthodes d'inscription et de connexion pour les utilisateurs
+ *
+ * Principales fonctionnalités :
+ * - Inscription d'un nouvel utilisateur.
+ * - Authentification d'un utilisateur existant.
+ *
+ */
 @Service
 public class AuthenticationService {
 
@@ -39,6 +48,14 @@ public class AuthenticationService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     *
+     * Cette méthode permet de créer un utilisateur et de l'enregistrer dans la base de données
+     *
+     * @param input DTO d'inscription contenant les informations de l'utilisateur
+     *
+     * @return Utilisateur créé et enregistré dans la base de données
+     */
     public User signup(RegisterUserDto input) {
         Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.USER);
 
@@ -56,6 +73,14 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
+    /**
+     *
+     * Cette méthode permet de vérifier les informations de connexion de l'utilisateur
+     *
+     * @param input DTO de connexion contenant l'email et le mot de passe de l'utilisateur
+     *
+     * @return Utilisateur authentifié s'il existe et que les identifiants sont corrects
+     */
     public User authenticate(LoginUserDto input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

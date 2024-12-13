@@ -15,6 +15,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+/**
+ * AdminSeeder : Initialisation du Super Administrateur lors du démarrage de l'application.
+ *
+ * Cette classe écoute l'événement ContextRefreshedEvent pour initialiser un compte Super Administrateur
+ * au démarrage de l'application.
+ *
+ *
+ */
 @Component
 public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -38,6 +46,15 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
         this.createSuperAdministrator();
     }
 
+    /**
+     * Création d'un compte Super Administrateur.
+     *
+     * Logique principale :
+     * - Vérifie si le rôle SUPER_ADMIN existe.
+     * - Vérifie si l'utilisateur Super Admin existe déjà.
+     * - Si le rôle existe mais que l'utilisateur n'existe pas, il est créé et enregistré.
+     *
+     */
     private void createSuperAdministrator() {
         RegisterUserDto userDto = new RegisterUserDto();
         userDto.setFullName("Super Admin");

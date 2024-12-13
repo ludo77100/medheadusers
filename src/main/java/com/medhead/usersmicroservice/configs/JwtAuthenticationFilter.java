@@ -18,6 +18,16 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.io.IOException;
 
+/**
+ * Filtre d'authentification JWT
+ *
+ * Ce filtre intercepte toutes les requêtes HTTP pour vérifier la validité du token JWT.
+ *
+ * Principales fonctionnalités :
+ * - Extraction du token JWT depuis l'en-tête HTTP Authorization.
+ * - Validation du token JWT (vérification de sa signature et de sa validité).
+ *
+ */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final HandlerExceptionResolver handlerExceptionResolver;

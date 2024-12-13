@@ -1,6 +1,14 @@
 package com.medhead.usersmicroservice.dtos;
 
-public class RegisterUserDto {
+/**
+ * DTO d'inscription de l'utilisateur
+ *
+ * Ce DTO est utilisé pour transférer les données d'inscription d'un utilisateur
+ *
+ * Principales fonctionnalités :
+ * - Fournit les champs nécessaires à l'inscription d'un utilisateur
+ */
+ public class RegisterUserDto {
     private String email;
 
     private String password;

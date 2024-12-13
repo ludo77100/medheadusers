@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *
+ * Ce service fournit la logique métier pour la gestion des utilisateurs
+ *
+ */
 @Service
 public class UserService {
 
@@ -30,6 +35,11 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Cette méthode renvoie la liste complète des utilisateurs présents dans la base de données.
+     *
+     * @return Liste des utilisateurs présents dans la base de données.
+     */
     public List<User> allUsers() {
         List<User> users = new ArrayList<>();
 
@@ -38,6 +48,13 @@ public class UserService {
         return users;
     }
 
+    /**
+     * Cette méthode permet de créer un administrateur et de l'enregistrer dans la base de données.
+     *
+     * @param input DTO d'inscription contenant les informations de l'utilisateur
+     *
+     * @return Utilisateur créé et enregistré dans la base de données.
+     */
     public User createAdministrator(RegisterUserDto input) {
 
         Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);

@@ -10,6 +10,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+/**
+ * RoleSeeder : Initialisation des rôles utilisateur lors du démarrage de l'application.
+ *
+ * Cette classe écoute l'événement ContextRefreshedEvent et initialise les rôles nécessaires pour l'application.
+ *
+ * Principales fonctionnalités :
+ * - Vérifie si les rôles USER, ADMIN et SUPER_ADMIN existent.
+ * - Si un rôle n'existe pas, il est créé et enregistré en base de données.
+ *
+ */
 @Component
 public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -21,6 +31,16 @@ public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
         this.loadRoles();
     }
 
+
+    /**
+     * Création des rôles de l'application.
+     *
+     * Logique principale :
+     * - Crée les rôles USER, ADMIN et SUPER_ADMIN s'ils n'existent pas.
+     * - Pour chaque rôle, vérifie s'il est déjà présent dans la base de données.
+     * - Si le rôle n'existe pas, il est créé et sauvegardé.
+     *
+     */
     void loadRoles() {
         RoleEnum[] roleNames = new RoleEnum[] { RoleEnum.USER, RoleEnum.ADMIN, RoleEnum.SUPER_ADMIN };
         Map<RoleEnum, String> roleDescriptionMap = Map.of(

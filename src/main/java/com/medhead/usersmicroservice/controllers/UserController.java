@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Contrôleur de gestion des utilisateurs
+ *
+ * Ce contrôleur expose les endpoints de gestion des utilisateurs.
+ */
 @RequestMapping("/users")
 @RestController
 public class UserController {
@@ -20,7 +25,13 @@ public class UserController {
     @Autowired
     UserService userService ;
 
-    @GetMapping("/me")
+/**
+ * Récupérer l'utilisateur authentifié
+ *
+ * Ce point d'entrée permet de récupérer les informations de l'utilisateur actuellement connecté.
+ *
+ */
+ @GetMapping("/me")
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<User> authenticatedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -30,7 +41,13 @@ public class UserController {
         return ResponseEntity.ok(currentUser);
     }
 
-    @GetMapping
+/**
+ * Lister tous les utilisateurs
+ *
+ * Ce point d'entrée permet de récupérer la liste de tous les utilisateurs.
+ *
+ */
+ @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<User>> allUsers() {
         List <User> users = userService.allUsers();

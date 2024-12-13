@@ -7,6 +7,7 @@ import com.medhead.usersmicroservice.entities.RoleEnum;
 import com.medhead.usersmicroservice.repositories.RoleRepository;
 import com.medhead.usersmicroservice.repositories.UserRepository;
 import com.medhead.usersmicroservice.entities.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,7 @@ public class UserService {
      *
      * @return Utilisateur créé et enregistré dans la base de données.
      */
+    @Transactional
     public User createAdministrator(RegisterUserDto input) {
 
         Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
